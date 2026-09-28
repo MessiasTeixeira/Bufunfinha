@@ -25,9 +25,9 @@
             </p>
         </div>
 
-        <a href="/correntista/cadastrar"
-           class="bg-blue-600 text-white px-5 py-3 rounded-lg
-                  hover:bg-blue-700 transition">
+        <a th:href="@{/correntista/{id}/cadastrar(id=${id})}"
+        class="bg-blue-600 text-white px-5 py-3 rounded-lg
+                hover:bg-blue-700 transition">
             Nova conta
         </a>
 
@@ -45,9 +45,9 @@
             Cadastre sua primeira conta para começar.
         </p>
 
-        <a href="/correntista/cadastrar"
-           class="inline-block mt-6 bg-blue-600 text-white
-                  px-5 py-3 rounded-lg hover:bg-blue-700 transition">
+        <a th:href="@{/correntista/{id}/cadastrar(id=${id})}"
+        class="inline-block mt-6 bg-blue-600 text-white
+                px-5 py-3 rounded-lg hover:bg-blue-700 transition">
             Cadastrar conta
         </a>
 
