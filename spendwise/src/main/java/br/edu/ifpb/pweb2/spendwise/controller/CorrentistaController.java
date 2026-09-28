@@ -56,13 +56,18 @@ public class CorrentistaController {
 
     @GetMapping("/{id}")
     public String inicio(@PathVariable Long id) {
-        List<Conta> contas = contaService.listarPorCorrentista(id);
+        try{
+            List<Conta> contas = contaService.listarPorCorrentista(id);
+            correntistaService.buscarPorId(id);
 
-        if (contas.isEmpty()) {
-            return "redirect:/correntista/" + id + "/cadastrar";
+            if (contas.isEmpty()) {
+                return "redirect:/correntista/" + id + "/cadastrar";
+            }
+            
+            return "redirect:/correntista/" + id + "/contas";
+        } catch (IllegalArgumentException e) {
+            return "correntista/correntistaNaoEncontrado";
         }
-
-        return "redirect:/correntista/" + id + "/contas";
     }
 
     @GetMapping("/{id}/contas")

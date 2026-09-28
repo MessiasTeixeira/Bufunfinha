@@ -20,6 +20,11 @@ public class AdminController {
         this.correntistaService = correntistaService;
     }
 
+    @GetMapping
+    public String inicio() {
+        return "redirect:/admin/correntistas";
+    }
+
     @GetMapping("/cadastrar")
     public String cadastrarCorrentista(Model model) {
         model.addAttribute("correntistaForm", new Correntista());
